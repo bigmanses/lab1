@@ -4,24 +4,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 
+/**
+ * Окно ввода слова для замены
+ */
 public class InputWordFrame extends JFrame {
-
+    /** Текст для лейбла ввода заменяемого слова */
     private final String REPLACEABLE_TEXT = "Заменяемое слово";
-
+    /** Текст для лейбла ввода заменяющего слова */
     private final String SUBSTITUTE_TEXT = "Заменяющее слово";
-
+    /** Лэйбл ввода текст */
     private final JLabel replaceableLabel = new JLabel(REPLACEABLE_TEXT);
-
+    /** Лэйбл ввода текст */
     private final JLabel substituteLabel = new JLabel(SUBSTITUTE_TEXT);
-
+    /** Поле, для ввода заменяемого слова */
     private final JTextField inputReplaceableText = new JTextField(15);
-
+    /** Поле, для ввода заменяющего слова */
     private final JTextField inputSubstituteText = new JTextField(15);
-
+    /** Кнопка для начала обработки замены */
     private final JButton okey = new JButton("Ввод");
-
+    /** Путь к файлу */
     private String filePath;
-
+    /** Флаг наличия слова в файле */
     private boolean wordPresence = false;
 
     public InputWordFrame(String filePath) {

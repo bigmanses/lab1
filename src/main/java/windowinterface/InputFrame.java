@@ -6,25 +6,29 @@ import java.io.File;
 import java.net.URLDecoder;
 import java.util.Objects;
 
+/**
+ * Окно ввода имени файла
+ */
 public class InputFrame extends JFrame {
 
+    /** Текст для лейбла ввода имени файла */
     private final String TEXT_INPUT_FILE = "Введите имя файла";
-
+    /** Лэйбл ввода текст */
     private final JLabel text = new JLabel(TEXT_INPUT_FILE);
-
+    /** Поле, для ввода имени файла */
     private final JTextField inputText = new JTextField(15);
-
+    /** Кнопка для начала обработки имени файла */
     private final JButton okey = new JButton("Ввод");
-
+    /** Путь к файлу */
     private String path;
-
+    /** Имя файла */
     private String fileName;
-
+    /** Окно ввода слова для замены */
     private InputWordFrame frame;
 
 
     public InputFrame() {
-        super();
+        super("Ввод файла");
         createPath();
         createGUI();
         addAction();
