@@ -1,10 +1,11 @@
-package windowinterface;
+package listener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/** Логика на поределенные действия мыши */
 public class MouseClick implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {

@@ -1,5 +1,7 @@
 package windowinterface;
 
+import listener.MouseClick;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -34,6 +36,9 @@ public class InputFrame extends JFrame {
         addAction();
     }
 
+    /**
+     * Создать интерфейс окна
+     */
     private void createGUI() {
         this.setSize(400, 200);
         setLocationRelativeTo(null);
@@ -48,6 +53,9 @@ public class InputFrame extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * Добавить действие кнопкам
+     */
     private void addAction() {
         okey.addActionListener(action -> {
             fileName = inputText.getText();
@@ -60,6 +68,11 @@ public class InputFrame extends JFrame {
         });
     }
 
+    /**
+     * Проверить поле на пустоту текста
+     * @param text - текст вводимые в поле
+     * @return - true, если поле непустое
+     */
     private boolean checkEmptyText (String text) {
         if (Objects.equals(text, "")) {
             inputText.setText("Введите имя файла");
@@ -78,12 +91,17 @@ public class InputFrame extends JFrame {
                 .getPath());
     }
 
-    private boolean checkCorrectTextFile(String text) {
-        if (!new File(path + text + ".txt").exists()) {
+    /**
+     * Првоерить корректность ввода имени файла
+     * @param name - имя файла
+     * @return true, если файл существует
+     */
+    private boolean checkCorrectTextFile(String name) {
+        if (!new File(path + name + ".txt").exists()) {
             inputText.setText("Файл не существует");
             inputText.setBackground(Color.RED);
             inputText.addMouseListener(new MouseClick());
         }
-        return new File(path + text + ".txt").exists();
+        return new File(path + name + ".txt").exists();
     }
 }

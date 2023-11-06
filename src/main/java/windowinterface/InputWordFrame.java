@@ -1,5 +1,7 @@
 package windowinterface;
 
+import listener.MouseClick;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -34,6 +36,9 @@ public class InputWordFrame extends JFrame {
         addAction();
     }
 
+    /**
+     * Создать интерфейс окна
+     */
     private void createGUI() {
         this.setSize(400, 250);
         setLocationRelativeTo(null);
@@ -51,10 +56,13 @@ public class InputWordFrame extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * Добавить действие кнопкам
+     */
     private void addAction() {
         okey.addActionListener(action -> {
             changeFile();
-            if (checkCorrectTextFile()) {
+            if (checkCorrectTextInFile()) {
                 okey.setBackground(Color.GREEN);
             } else {
                 okey.setBackground(Color.RED);
@@ -62,6 +70,9 @@ public class InputWordFrame extends JFrame {
         });
     }
 
+    /**
+     * Изменить содержимое файла
+     */
     private void changeFile() {
 
         wordPresence = false;
@@ -89,7 +100,11 @@ public class InputWordFrame extends JFrame {
         }
     }
 
-    private boolean checkCorrectTextFile() {
+    /**
+     * Проверить файл на существование изменяемого слова
+     * @return - true, если слово существует
+     */
+    private boolean checkCorrectTextInFile() {
         if (!wordPresence) {
             inputReplaceableText.setText("Слова не существует");
             inputReplaceableText.setBackground(Color.RED);
