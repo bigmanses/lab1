@@ -65,17 +65,12 @@ public class InputWordFrame extends JFrame {
     private void changeFile() {
 
         wordPresence = false;
-
         File f = new File(filePath);
-        try
-        {
+        try {
             String ENDL = System.getProperty("line.separator");
-
             StringBuilder sb = new StringBuilder();
-
             BufferedReader br = new BufferedReader(new FileReader(f));
             String ln;
-
             while((ln = br.readLine()) != null) {
                 sb.append(ln.replace(inputReplaceableText.getText(), inputSubstituteText.getText())).append(ENDL);
                 wordPresence = wordPresence || !ln.equals(ln.replace(inputReplaceableText.getText(), inputSubstituteText.getText()));
